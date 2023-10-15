@@ -63,11 +63,11 @@ function cloneArr2(arr) {
     } )
 }
 let arr4 = cloneArr([1,2,3,4,5]);
-console.log(arr4);
+console.log(arr4); // [ 1, 2, 3, 4, 5 ]
 let arr5 = cloneArr1([1,2,3,4,5]);
-console.log(arr5);
+console.log(arr5); // [ 1, 2, 3, 4, 5 ]
 let arr6 = cloneArr2([1,2,3,4,5]);
-console.log(arr6);
+console.log(arr6); // [ 1, 2, 3, 4, 5 ]
 
 
 // 15. Write a JavaScript function that accepts an argument return their type
@@ -95,9 +95,9 @@ function nFirstPrint(arr, n = 1) {
         console.log("More then the length of the array");
     }
 }
-nFirstPrint([1,2,3,4,5], 4);
-nFirstPrint([1,2,3,4,5]);
-nFirstPrint([1,2,3,4,5], 15);
+nFirstPrint([1,2,3,4,5], 4); // 1, 2, 3, 4
+nFirstPrint([1,2,3,4,5]); // 1
+nFirstPrint([1,2,3,4,5], 15); // More then the length of the array
 
 
 // 17. Write a JavaScript function to get the last element of an array if we don't pass any n elements
@@ -111,9 +111,9 @@ function nLastPrint(arr, n = 1) {
         console.log("More then the length of the array");
     }
 }
-nLastPrint([1,2,3,4,5], 4);
-nLastPrint([1,2,3,4,5]);
-nLastPrint([1,2,3,4,5], 15);
+nLastPrint([1,2,3,4,5], 4); // 5, 4, 3, 2
+nLastPrint([1,2,3,4,5]); // 5
+nLastPrint([1,2,3,4,5], 15); // More then the length of the array
 
 
 // 18. Write a JavaScript program to find the most frequent item of an array.
@@ -166,8 +166,26 @@ function findMostFrequentItem1(arr) {
 let arr11 = [1, 2, 2, 3, 4, 4, 4, 5, 5, 5, 5];
 let mostFrequent = findMostFrequentItem(arr11);
 let mostFrequent1 = findMostFrequentItem1(arr11);
-console.log("The most frequent item is: " + mostFrequent);
-console.log("The most frequent item is: " + mostFrequent1);
+console.log("The most frequent item is: " + mostFrequent); // The most frequent item is: 5
+console.log("The most frequent item is: " + mostFrequent1); // The most frequent item is: 5
 
 
-// 19. 
+// 19. Write a javaScript function to shuffle an array
+function shuffleArray(arr) {
+    for(let i = arr.length-1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i+1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+}
+const myArray = [1,2,3,4,5];
+shuffleArray(myArray);
+console.log(myArray); // output: [4, 2, 3, 5, 1];  not fixed, it's totally random position.
+
+
+// 20. write a program that return union of two array.
+function union(arr, arr1) {
+    return [...new Set(arr.concat(arr1))];
+}
+let arr_ = [1,2,3,4,5];
+let arr_1 = [2,3,4,6,7];
+console.log(union(arr_, arr_1)); // output: [1, 2, 3, 4, 5, 6, 7]
